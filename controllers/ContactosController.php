@@ -4,8 +4,7 @@ class ContactosController {
 
     public function indexAction()
     {
-        $view = new View('contactos');
-        $view->execute();
+        return new View('contactos',['titulo' => 'Mejorando.la' ,'h1' => 'Correo de atención',  'correo' => 'contactos@mejorando.la']);
     }
 
     public function ciudadAction($ciudad)

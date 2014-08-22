@@ -26,9 +26,17 @@ class View extends Response {
         $template = $this->getTemplate();
         $vars = $this->getVars();
 
+
         call_user_func( function() use($template,$vars) {
             extract($vars);
+
+            ob_start();
+
             require "views/$template.tpl.php";
+
+            $tpl_content = ob_get_clean();
+
+            require "views/layout.tpl.php";
         });
 
     }
